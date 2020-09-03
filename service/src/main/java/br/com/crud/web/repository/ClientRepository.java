@@ -1,5 +1,11 @@
 package br.com.crud.web.repository;
 
-public interface ClientRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import br.com.crud.web.domain.entity.Client;
+
+@Repository
+public interface ClientRepository extends JpaRepository<Client, Long> {
 
 }

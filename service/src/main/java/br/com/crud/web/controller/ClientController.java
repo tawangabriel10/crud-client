@@ -23,6 +23,7 @@ public class ClientController {
 	
 	@PostMapping
 	public ResponseEntity<ClientDTO> save(@RequestBody ClientDTO clientDTO) {
-		
+		ClientDTO result = clientService.save(clientDTO);
+		return ResponseEntity.ok(result);
 	}
 }

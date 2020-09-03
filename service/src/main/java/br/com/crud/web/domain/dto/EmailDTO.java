@@ -2,9 +2,6 @@ package br.com.crud.web.domain.dto;
 
 import java.io.Serializable;
 
-import lombok.Data;
-
-@Data
 public class EmailDTO implements Serializable {
 
 	private static final long serialVersionUID = 8936955120426118945L;
@@ -12,5 +9,21 @@ public class EmailDTO implements Serializable {
 	private Long id;
 	
 	private String email;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	
 }
