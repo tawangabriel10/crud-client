@@ -1,5 +1,8 @@
 package br.com.crud.web.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -27,5 +30,12 @@ public class ClientService {
 	public ClientDTO save(ClientDTO clientDTO) {
 		Client client = clientMapper.toEntity(clientDTO);
 		return clientMapper.toDTO(clientRepository.save(client));
+	}
+	
+	@Transactional(readOnly = true)
+	public List<ClientDTO> findAll() {
+		return clientRepository.findAll()
+				.stream().map(clientMapper::toDTO)
+				.collect(Collectors.toList());
 	}
 }

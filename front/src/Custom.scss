@@ -1,0 +1,13 @@
+// alterando o Bootstrap padrão
+$theme-colors: (
+  "primary": #333, 
+);
+
+$btn-border-radius: 4px;
+$btn-font-size: 14px;
+
+$input-bg: #f9f9fd;
+
+
+
+@import "../node_modules/bootstrap/scss/bootstrap";

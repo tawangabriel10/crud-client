@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.crud.web.domain.dto.DataCepDTO;
@@ -20,8 +21,8 @@ public class ViaCepController {
 		this.viaCepService = viaCepService;
 	}
 	
-	@GetMapping("/:cep")
-	public ResponseEntity<DataCepDTO> findByCep(@PathVariable("cep") String cep) throws BadRequestException {
+	@GetMapping
+	public ResponseEntity<DataCepDTO> findByCep(@RequestParam("cep") String cep) throws BadRequestException {
 		DataCepDTO data = viaCepService.findCep(cep);
 		return ResponseEntity.ok(data);
 	}

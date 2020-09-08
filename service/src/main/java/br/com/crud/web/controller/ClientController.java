@@ -1,7 +1,10 @@
 package br.com.crud.web.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,5 +28,11 @@ public class ClientController {
 	public ResponseEntity<ClientDTO> save(@RequestBody ClientDTO clientDTO) {
 		ClientDTO result = clientService.save(clientDTO);
 		return ResponseEntity.ok(result);
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<ClientDTO>> getAll() {
+		List<ClientDTO> clients = clientService.findAll();
+		return ResponseEntity.ok(clients);
 	}
 }
